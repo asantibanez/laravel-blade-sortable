@@ -1,0 +1,54 @@
+{
+    "name": "asantibanez/laravel-blade-sortable",
+    "description": "Laravel Blade Sortable",
+    "keywords": [
+        "asantibanez",
+        "laravel-blade-sortable"
+    ],
+    "homepage": "https://github.com/asantibanez/laravel-blade-sortable",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Andrés Santibáñez",
+            "email": "santibanez.andres@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.0|^8.0",
+        "illuminate/support": "^7.0|^8.0"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^5.0|^6.0",
+        "phpunit/phpunit": "^8.0|^9.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Asantibanez\\LaravelBladeSortable\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Asantibanez\\LaravelBladeSortable\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Asantibanez\\LaravelBladeSortable\\LaravelBladeSortableServiceProvider"
+            ],
+            "aliases": {
+                "LaravelBladeSortable": "Asantibanez\\LaravelBladeSortable\\LaravelBladeSortableFacade"
+            }
+        }
+    }
+}
