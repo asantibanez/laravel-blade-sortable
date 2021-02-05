@@ -5,6 +5,12 @@
 
 ![Laravel Blade Sortable](https://laravel-og.beyondco.de/Laravel%20Blade%20Sortable.png?theme=light&packageManager=composer+require&packageName=asantibanez%2Flaravel-blade-sortable&pattern=architect&style=style_1&description=Custom+Blade+components+to+add+sortable%2Fdrag-and-drop+HTML+elements+in+your+apps&md=1&showWatermark=1&fontSize=100px&images=menu)
 
+## Demo
+
+[Repo](https://github.com/asantibanez/laravel-blade-sortable-demo)
+
+![demo](https://github.com/asantibanez/laravel-blade-sortable/raw/master/demo.gif)
+
 ## Installation
 
 You can install the package via composer:
