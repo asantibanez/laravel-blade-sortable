@@ -3,7 +3,7 @@
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/asantibanez/laravel-blade-sortable.svg?style=flat-square)](https://packagist.org/packages/asantibanez/laravel-blade-sortable)
 [![Total Downloads](https://img.shields.io/packagist/dt/asantibanez/laravel-blade-sortable.svg?style=flat-square)](https://packagist.org/packages/asantibanez/laravel-blade-sortable)
 
-Custom Blade components to add sortable/drag-and-drop HTML elements in your apps.
+![Laravel Blade Sortable](https://laravel-og.beyondco.de/Laravel%20Blade%20Sortable.png?theme=light&packageManager=composer+require&packageName=asantibanez%2Flaravel-blade-sortable&pattern=architect&style=style_1&description=Custom+Blade+components+to+add+sortable%2Fdrag-and-drop+HTML+elements+in+your+apps&md=1&showWatermark=1&fontSize=100px&images=menu)
 
 ## Installation
 
@@ -127,7 +127,26 @@ Looks dope, right? 👌
 
 ### As Form Input
 
-WIP
+The sort order of elements can be used alongside other input fields on form submissions.
+To enable this behavior, just pass a `name` prop to a `laravel-blade-sortable::sortable` 
+component. The `name` should be the name of the input in your form.
+ 
+```blade
+<form>
+    <x-laravel-blade-sortable::sortable
+        name="sort_order"
+    >
+        {{-- Items here --}}
+    </x-laravel-blade-sortable::sortable>
+</form>
+```
+
+By adding a `name` props, the component internally adds hidden inputs
+for each one of the items' `sort-key`. 
+
+![as-form-input](https://github.com/asantibanez/laravel-blade-sortable/raw/master/examples/as-form-input.gif)
+
+Pretty neat! 👌
 
 ### With Livewire
 
