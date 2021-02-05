@@ -1,7 +1,7 @@
-@if($as)
-    <{{ $as }} {{ $attributes }}>
+@if(!$component)
+    <{{ $as ?? 'div' }} {{ $attributes }}>
         {{ $slot }}
-    </{{ $as }}>
+    </{{ $as ?? 'div' }}>
 @endif
 
 @if($component)
