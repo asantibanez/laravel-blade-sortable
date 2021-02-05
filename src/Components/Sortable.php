@@ -21,6 +21,22 @@ class Sortable extends Component
         $this->name = $name;
     }
 
+    public function xInit()
+    {
+        $wireOnSortOrderChange = $this->attributes->whereStartsWith('wire:onSortOrderChange')->first();
+
+        $hasWireOnSortOrderChangeDirective = $wireOnSortOrderChange !== null;
+
+        return collect()
+            ->push($hasWireOnSortOrderChangeDirective ? 'wireComponent = $wire' : null)
+            ->push($hasWireOnSortOrderChangeDirective ? "wireOnSortOrderChange = '$wireOnSortOrderChange'" : null)
+            ->push('init()')
+            ->filter(function ($line) {
+                return $line !== null;
+            })
+            ->join('; ');
+    }
+
     public function render()
     {
         return view('laravel-blade-sortable::components.sortable');

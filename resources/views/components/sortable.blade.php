@@ -2,7 +2,7 @@
     <{{ $as ?? 'div' }}
         {{ $attributes }}
         x-data="{ ...laravelBladeSortable() }"
-        x-init="init()"
+        x-init="{{ $xInit() }}"
         x-ref="root"
     >
         @include('laravel-blade-sortable::includes.hidden-inputs')
@@ -15,7 +15,7 @@
         :component="$component"
         {{ $attributes }}
         x-data="{ ...laravelBladeSortable() }"
-        x-init="init()"
+        x-init="{{ $xInit() }}"
         x-ref="root"
     >
         @include('laravel-blade-sortable::includes.hidden-inputs')
