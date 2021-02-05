@@ -154,11 +154,46 @@ WIP
 
 ### Customization
 
-WIP
+To support some advanced features of SortableJs, it is possible to pass the following
+props to a `laravel-blade-sortable::sortable` component:
+- `animation`: milliseconds it takes to run the sorting animation. `150` is the default value.
+- `ghost-class`: class added to the dragged object during sort. Default is `null`. Must be 1 class only.
+- `drag-handle`: class name that will be used as the handle for dragging. Only the DOM element that has that class can enable sorting.
+
+```blade
+<x-laravel-blade-sortable::sortable
+    animation="1000"
+    ghost-class="opacity-25"
+    drag-handle="drag-handle"
+>
+    {{-- Items here --}}
+</x-laravel-blade-sortable::sortable>
+```
+
+![customization](https://github.com/asantibanez/laravel-blade-sortable/raw/master/examples/customization.gif)
 
 ### Multiple Drop Zones
 
-WIP
+Wanting to have different drop zones to drag/drop/sort elements? We have you covered. 😎
+
+Just add a `group` string prop to a `laravel-blade-sortable::sortable` component. Add the same prop to another
+`laravel-blade-sortable::sortable` component on the same page and BOOM! Done!
+
+```blade
+<x-laravel-blade-sortable::sortable
+    group="people"
+>
+    {{-- Items here --}}
+</x-laravel-blade-sortable::sortable>
+
+<x-laravel-blade-sortable::sortable
+    group="people"
+>
+    {{-- Items here --}}
+</x-laravel-blade-sortable::sortable>
+```
+
+![drag-drop](https://github.com/asantibanez/laravel-blade-sortable/raw/master/examples/drag-drop.gif)
 
 ### Testing
 
