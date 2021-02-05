@@ -1,6 +1,6 @@
 {
     "name": "asantibanez/laravel-blade-sortable",
-    "description": "Laravel Blade Sortable",
+    "description": "Custom Blade components to add sortable/drag-and-drop HTML elements in your apps",
     "keywords": [
         "asantibanez",
         "laravel-blade-sortable"
