@@ -14,11 +14,21 @@ class Sortable extends Component
 
     public $name;
 
-    public function __construct($as = null, $component = null, $name = null)
+    public $animation;
+
+    public $ghostClass;
+
+    public function __construct($as = null,
+                                $component = null,
+                                $name = null,
+                                $animation = 150,
+                                $ghostClass = '')
     {
         $this->as = $as;
         $this->component = $component;
         $this->name = $name;
+        $this->animation = $animation;
+        $this->ghostClass = $ghostClass;
     }
 
     public function xInit()
@@ -28,6 +38,8 @@ class Sortable extends Component
         $hasWireOnSortOrderChangeDirective = $wireOnSortOrderChange !== null;
 
         return collect()
+            ->push("animation = {$this->animation}")
+            ->push("ghostClass = '{$this->ghostClass}'")
             ->push($hasWireOnSortOrderChangeDirective ? 'wireComponent = $wire' : null)
             ->push($hasWireOnSortOrderChangeDirective ? "wireOnSortOrderChange = '$wireOnSortOrderChange'" : null)
             ->push('init()')
