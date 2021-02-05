@@ -4,6 +4,7 @@
             sortOrder: [],
             animation: 150,
             ghostClass: '',
+            dragHandle: null,
 
             wireComponent: null,
             wireOnSortOrderChange: null,
@@ -14,6 +15,7 @@
                     .filter(sortKey => sortKey)
 
                 window.Sortable.create(this.$refs.root, {
+                    handle: this.dragHandle,
                     animation: this.animation,
                     ghostClass: this.ghostClass,
                     onEnd: evt => {
