@@ -1,11 +1,9 @@
-# Very short description of the package
+# Laravel Blade Sortable
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/asantibanez/laravel-blade-sortable.svg?style=flat-square)](https://packagist.org/packages/asantibanez/laravel-blade-sortable)
-[![Build Status](https://img.shields.io/travis/asantibanez/laravel-blade-sortable/master.svg?style=flat-square)](https://travis-ci.org/asantibanez/laravel-blade-sortable)
-[![Quality Score](https://img.shields.io/scrutinizer/g/asantibanez/laravel-blade-sortable.svg?style=flat-square)](https://scrutinizer-ci.com/g/asantibanez/laravel-blade-sortable)
 [![Total Downloads](https://img.shields.io/packagist/dt/asantibanez/laravel-blade-sortable.svg?style=flat-square)](https://packagist.org/packages/asantibanez/laravel-blade-sortable)
 
-This is where your description should go. Try and limit it to a paragraph or two, and maybe throw in a mention of what PSRs you support to avoid any confusion with users and contributors.
+Custom Blade components to add sortable/drag-and-drop HTML elements in your apps.
 
 ## Installation
 
@@ -15,11 +13,105 @@ You can install the package via composer:
 composer require asantibanez/laravel-blade-sortable
 ```
 
+After the package is installed, make sure to add `laravel-blade-sortable::scripts`
+components next to your other scripts.
+
+```html
+<x-laravel-blade-sortable::scripts/>
+<script src="/js/app.js"></script>
+```
+
+## Requirements
+
+Package requires `SortableJs` and `AlpineJs` to be installed
+in your application in order to enable sorting. Reach out
+to their respective documentation in order to set them up.
+
+> NOTE: `SortableJs` must be available at the `window` object level in Javascript.
+> To do this, import the library using
+> 
+> `window.Sortable = require('sortablejs').default`
+> 
+> or use any other similar approach
+
 ## Usage
 
-``` php
-// Usage description here
+The package provides 2 custom Blade components to enable sorting of DOM elements: 
+- `laravel-blade-sortable::sortable` 
+- `laravel-blade-sortable::sortable-item`
+
+### Sortable
+
+`laravel-blade-sortable::sortable` is used as the wrapper element for your sortable/drag-and-drop
+items. It must be used to enclose the children it will enable sortable.
+
+```blade
+<x-laravel-blade-sortable::sortable>
+    {{-- Items here --}}
+</x-laravel-blade-sortable::sortable>
 ```
+
+By default, the component renders a "div" as the wrapper node. You can
+customize this behavior by passing an `as` property to render 
+the type of node you need.
+
+```blade
+<x-laravel-blade-sortable::sortable
+    as="ul" {{-- Will render an unordered list wrapper node --}}
+>
+    {{-- Items here --}}
+</x-laravel-blade-sortable::sortable>
+```
+
+>NOTE: Any other attribute you pass along (class, id, alt, etc) will be 
+> added to the element
+
+If you would like to use custom Blade component as a wrapper node, 
+you can also do this by passing a `component` property.
+
+```blade
+<x-laravel-blade-sortable::sortable
+    component="custom-blade-component" {{-- Will render "x-custom-blade-component" --}}
+>
+    {{-- Items here --}}
+</x-laravel-blade-sortable::sortable>
+```
+
+### Sortable Item
+
+`laravel-blade-sortable::sortable-item` is used as the wrapper element for 
+each item you want to enable sorting.
+
+```blade
+<x-laravel-blade-sortable::sortable>
+    <x-laravel-blade-sortable::sortable-item sort-key="jason">
+        Jason
+    </x-laravel-blade-sortable::sortable-item>
+    <x-laravel-blade-sortable::sortable-item sort-key="andres">
+        Andres
+    </x-laravel-blade-sortable::sortable-item>
+    <x-laravel-blade-sortable::sortable-item sort-key="matt">
+        Matt
+    </x-laravel-blade-sortable::sortable-item>
+    <x-laravel-blade-sortable::sortable-item sort-key="james">
+        James
+    </x-laravel-blade-sortable::sortable-item>
+</x-laravel-blade-sortable::sortable>
+```
+
+> NOTE: Similar to `laravel-blade-sortable::sortable`, you can pass a `as`
+> or `component` property to render the type of node or custom component you
+> desire.
+>
+> NOTE: Extra attributes like class, id, alt, etc can be passed along to
+> and will be added to the item node.
+
+As you may have noticed, every `laravel-blade-sortable::sortable-item` 
+requires a `sort-key` property. This property will be used to keep
+track of the ordering of the elements. Should be unique too.
+
+And that's it. You have now a sortable list rendered by Laravel Blade
+without any custom Javascript. 🔥
 
 ### Testing
 
@@ -47,7 +139,3 @@ If you discover any security related issues, please email santibanez.andres@gmai
 ## License
 
 The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
-
-## Laravel Package Boilerplate
-
-This package was generated using the [Laravel Package Boilerplate](https://laravelpackageboilerplate.com).
