@@ -2,6 +2,6 @@
 
 All notable changes to `laravel-blade-sortable` will be documented in this file
 
-## 1.0.0 - 201X-XX-XX
+## 1.0.0 - 2020-02-05
 
-- initial release
+- Initial release. Enjoy! 👍
