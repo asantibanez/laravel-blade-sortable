@@ -150,7 +150,29 @@ Pretty neat! 👌
 
 ### With Livewire
 
-WIP
+Into Livewire? It's awesome. We know.
+
+You can use this package within your Livewire views and use the 
+sorting information in the component.
+
+To get "sort change" updates in your Livewire component, just add the
+attribute `wire:onSortOrderChange` to a `x-laravel-blade-sortable::sortable`
+component. Adding this attribute will hook the Livewire component when a 
+sorting event happens and will call the specified method/callback.
+
+```blade
+<x-laravel-blade-sortable::sortable
+    wire:onSortOrderChange="handleSortOrderChange"
+>
+    {{-- Items here --}}
+</x-laravel-blade-sortable::sortable>
+```
+
+In the example above, every time your items are sorted, the `handleSortOrderChange`
+method will be called passing as argument an array with your items' `sort-key` in the
+current order.
+
+![livewire](https://github.com/asantibanez/laravel-blade-sortable/raw/master/examples/livewire.gif)
 
 ### Customization
 
