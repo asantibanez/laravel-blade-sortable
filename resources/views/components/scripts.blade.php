@@ -5,6 +5,7 @@
             animation: 150,
             ghostClass: '',
             dragHandle: null,
+            group: null,
 
             wireComponent: null,
             wireOnSortOrderChange: null,
@@ -18,6 +19,7 @@
                     handle: this.dragHandle,
                     animation: this.animation,
                     ghostClass: this.ghostClass,
+                    group: this.group,
                     onEnd: evt => {
                         this.sortOrder = [].slice.call(evt.from.children)
                             .map(child => child.dataset.sortKey)

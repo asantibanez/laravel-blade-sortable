@@ -20,12 +20,15 @@ class Sortable extends Component
 
     public $dragHandle;
 
+    public $group;
+
     public function __construct($as = null,
                                 $component = null,
                                 $name = null,
                                 $animation = 150,
                                 $ghostClass = '',
-                                $dragHandle = null)
+                                $dragHandle = null,
+                                $group = null)
     {
         $this->as = $as;
         $this->component = $component;
@@ -33,6 +36,7 @@ class Sortable extends Component
         $this->animation = $animation;
         $this->ghostClass = $ghostClass;
         $this->dragHandle = $dragHandle;
+        $this->group = $group;
     }
 
     public function xInit()
@@ -43,10 +47,13 @@ class Sortable extends Component
 
         $hasDragHandle = $this->dragHandle !== null;
 
+        $hasGroup = $this->group !== null;
+
         return collect()
             ->push("animation = {$this->animation}")
             ->push("ghostClass = '{$this->ghostClass}'")
             ->push($hasDragHandle ? "dragHandle = '.{$this->dragHandle}'" : null)
+            ->push($hasGroup ? "group = '{$this->group}'" : null)
             ->push($hasWireOnSortOrderChangeDirective ? 'wireComponent = $wire' : null)
             ->push($hasWireOnSortOrderChangeDirective ? "wireOnSortOrderChange = '$wireOnSortOrderChange'" : null)
             ->push('init()')
