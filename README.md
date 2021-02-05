@@ -113,6 +113,34 @@ track of the ordering of the elements. Should be unique too.
 And that's it. You have now a sortable list rendered by Laravel Blade
 without any custom Javascript. 🔥
 
+![basic](https://github.com/asantibanez/laravel-blade-sortable/raw/master/examples/basic.gif)
+
+That example looks awful though 😅. Because you can pass in any custom component or styling directly,
+you can customize the wrapper and item nodes according to your needs. Here's another example using
+TailwindCSS ❤️ and custom components
+
+![custom-component](https://github.com/asantibanez/laravel-blade-sortable/raw/master/examples/custom-component.gif)
+
+Looks dope, right? 👌
+
+## Advanced Usage
+
+### As Form Input
+
+WIP
+
+### With Livewire
+
+WIP
+
+### Customization
+
+WIP
+
+### Multiple Drop Zones
+
+WIP
+
 ### Testing
 
 ``` bash
