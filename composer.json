@@ -50,5 +50,7 @@
                 "LaravelBladeSortable": "Asantibanez\\LaravelBladeSortable\\LaravelBladeSortableFacade"
             }
         }
-    }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }
