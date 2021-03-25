@@ -11,25 +11,29 @@
             wireOnSortOrderChange: null,
 
             init() {
-                this.sortOrder = [].slice.call(this.$refs.root.children)
-                    .map(child => child.dataset.sortKey)
-                    .filter(sortKey => sortKey)
+                this.sortOrder = this.computeSortOrderFromChildren()
 
                 window.Sortable.create(this.$refs.root, {
                     handle: this.dragHandle,
                     animation: this.animation,
                     ghostClass: this.ghostClass,
                     group: this.group,
-                    onEnd: evt => {
-                        this.sortOrder = [].slice.call(evt.from.children)
-                            .map(child => child.dataset.sortKey)
-                            .filter(sortKey => sortKey)
+                    onSort: evt => {
+                        this.sortOrder = this.computeSortOrderFromChildren()
+
                         if (!this.wireComponent) {
                             return
                         }
+
                         this.wireComponent.call(this.wireOnSortOrderChange, this.sortOrder)
                     },
                 });
+            },
+
+            computeSortOrderFromChildren() {
+                return [].slice.call(this.$refs.root.children)
+                    .map(child => child.dataset.sortKey)
+                    .filter(sortKey => sortKey)
             }
         }
     }
