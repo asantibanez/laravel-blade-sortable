@@ -2,6 +2,10 @@
 
 All notable changes to `laravel-blade-sortable` will be documented in this file
 
+## 1.1.0 - 2020-03-24
+
+- Fixed drag/drop input value auto update 
+
 ## 1.0.3 - 2020-02-05
 
 - Updated composer settings
