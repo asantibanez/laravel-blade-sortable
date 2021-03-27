@@ -1,6 +1,7 @@
 <script>
     const laravelBladeSortable = () => {
         return {
+            name: '',
             sortOrder: [],
             animation: 150,
             ghostClass: '',
@@ -19,13 +20,24 @@
                     ghostClass: this.ghostClass,
                     group: this.group,
                     onSort: evt => {
+                        const previousSortOrder = [...this.sortOrder]
                         this.sortOrder = this.computeSortOrderFromChildren()
 
                         if (!this.wireComponent) {
                             return
                         }
 
-                        this.wireComponent.call(this.wireOnSortOrderChange, this.sortOrder)
+                        const from = evt?.from?.dataset?.name
+                        const to = evt?.to?.dataset?.name
+
+                        this.wireComponent.call(
+                            this.wireOnSortOrderChange,
+                            this.sortOrder,
+                            previousSortOrder,
+                            this.name,
+                            from,
+                            to,
+                        )
                     },
                 });
             },

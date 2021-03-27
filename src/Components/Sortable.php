@@ -50,6 +50,7 @@ class Sortable extends Component
         $hasGroup = $this->group !== null;
 
         return collect()
+            ->push("name = '{$this->name}'")
             ->push("animation = {$this->animation}")
             ->push("ghostClass = '{$this->ghostClass}'")
             ->push($hasDragHandle ? "dragHandle = '.{$this->dragHandle}'" : null)

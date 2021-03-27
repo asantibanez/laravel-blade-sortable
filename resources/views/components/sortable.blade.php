@@ -1,6 +1,7 @@
 @if(!$component)
     <{{ $as ?? 'div' }}
         {{ $attributes }}
+        data-name="{{ $name }}"
         x-data="{ ...laravelBladeSortable() }"
         x-init="{!! $xInit() !!}"
         x-ref="root"
@@ -14,6 +15,7 @@
     <x-dynamic-component
         :component="$component"
         {{ $attributes }}
+        data-name="{{ $name }}"
         x-data="{ ...laravelBladeSortable() }"
         x-init="{!! $xInit() !!}"
         x-ref="root"
