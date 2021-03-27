@@ -168,6 +168,7 @@ sorting event happens and will call the specified method/callback.
 
 ```blade
 <x-laravel-blade-sortable::sortable
+    name="dropzone"
     wire:onSortOrderChange="handleSortOrderChange"
 >
     {{-- Items here --}}
@@ -179,6 +180,19 @@ method will be called passing as argument an array with your items' `sort-key` i
 current order.
 
 ![livewire](https://github.com/asantibanez/laravel-blade-sortable/raw/master/examples/livewire.gif)
+
+Extra info is passed along too, so you can check extra data when processing the sort order
+
+```php
+public function handleOnSortOrderChanged($sortOrder, $previousSortOrder, $name, $from, $to)
+{
+    // $sortOrder = new keys order
+    // $previousSortOrder = keys previous order
+    // $name = drop target name
+    // $from = name of drop target from where the dragged/sorted item came from
+    // $to = name of drop target to where the dragged/sorted item was placed
+}
+```
 
 ### Customization
 

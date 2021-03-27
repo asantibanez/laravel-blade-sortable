@@ -2,6 +2,10 @@
 
 All notable changes to `laravel-blade-sortable` will be documented in this file
 
+## 1.2.0 - 2020-03-26
+
+- Added extra info to Livewire callbacks
+
 ## 1.1.0 - 2020-03-24
 
 - Fixed drag/drop input value auto update 
