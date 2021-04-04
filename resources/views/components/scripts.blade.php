@@ -7,6 +7,8 @@
             ghostClass: '',
             dragHandle: null,
             group: null,
+            allowSort: true,
+            allowDrop: true,
 
             wireComponent: null,
             wireOnSortOrderChange: null,
@@ -18,7 +20,11 @@
                     handle: this.dragHandle,
                     animation: this.animation,
                     ghostClass: this.ghostClass,
-                    group: this.group,
+                    group: {
+                        name: this.group,
+                        put: this.allowDrop,
+                    },
+                    sort: this.allowSort,
                     onSort: evt => {
                         const previousSortOrder = [...this.sortOrder]
                         this.sortOrder = this.computeSortOrderFromChildren()

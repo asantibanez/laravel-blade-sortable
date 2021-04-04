@@ -22,13 +22,19 @@ class Sortable extends Component
 
     public $group;
 
+    public $allowDrop;
+
+    public $allowSort;
+
     public function __construct($as = null,
                                 $component = null,
                                 $name = null,
                                 $animation = 150,
                                 $ghostClass = '',
                                 $dragHandle = null,
-                                $group = null)
+                                $group = null,
+                                $allowSort = true,
+                                $allowDrop = true)
     {
         $this->as = $as;
         $this->component = $component;
@@ -37,6 +43,8 @@ class Sortable extends Component
         $this->ghostClass = $ghostClass;
         $this->dragHandle = $dragHandle;
         $this->group = $group;
+        $this->allowDrop = $allowDrop;
+        $this->allowSort = $allowSort;
     }
 
     public function xInit()
@@ -57,6 +65,8 @@ class Sortable extends Component
             ->push($hasGroup ? "group = '{$this->group}'" : null)
             ->push($hasWireOnSortOrderChangeDirective ? 'wireComponent = $wire' : null)
             ->push($hasWireOnSortOrderChangeDirective ? "wireOnSortOrderChange = '$wireOnSortOrderChange'" : null)
+            ->push($this->allowSort ? 'allowSort = true' : 'allowSort = false')
+            ->push($this->allowDrop ? 'allowDrop = true' : 'allowDrop = false')
             ->push('init()')
             ->filter(function ($line) {
                 return $line !== null;
