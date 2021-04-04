@@ -237,6 +237,25 @@ Just add a `group` string prop to a `laravel-blade-sortable::sortable` component
 
 ![drag-drop](https://github.com/asantibanez/laravel-blade-sortable/raw/master/examples/drag-drop.gif)
 
+### Enable/Disable sorting and/or drop
+
+Use `:allow-sort=true|false` and `:allow-drop=true|false` to `x-laravel-blade-sortable::sortable` components
+to enable/disable sorting and/or drop of elements.
+
+Both defaults to `true`.
+
+```blade
+<x-laravel-blade-sortable::sortable
+    group="people"
+    :allow-sort="false"
+    :allow-drop="false"
+>
+    {{-- Items here --}}
+</x-laravel-blade-sortable::sortable>
+```
+
+![disable-sort-drop](https://github.com/asantibanez/laravel-blade-sortable/raw/master/examples/disable-sort-drop.gif)
+
 ### Testing
 
 ``` bash
