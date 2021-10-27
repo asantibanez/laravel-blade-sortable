@@ -29,14 +29,14 @@
                         const previousSortOrder = [...this.sortOrder]
                         this.sortOrder = this.computeSortOrderFromChildren()
 
-                        if (!this.wireComponent) {
+                        if (!this.$wire) {
                             return
                         }
 
                         const from = evt?.from?.dataset?.name
                         const to = evt?.to?.dataset?.name
 
-                        this.wireComponent.call(
+                        this.$wire.call(
                             this.wireOnSortOrderChange,
                             this.sortOrder,
                             previousSortOrder,
