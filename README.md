@@ -1,5 +1,7 @@
 # Laravel Blade Sortable
 
+This package allows you manage the order of items in a list, being simple or complex components. When the order is updated, you get events notifying the change for you to react upon in Livewire world. This behavior allows you to create rich user experiences.
+
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/asantibanez/laravel-blade-sortable.svg?style=flat-square)](https://packagist.org/packages/asantibanez/laravel-blade-sortable)
 [![Total Downloads](https://img.shields.io/packagist/dt/asantibanez/laravel-blade-sortable.svg?style=flat-square)](https://packagist.org/packages/asantibanez/laravel-blade-sortable)
 
